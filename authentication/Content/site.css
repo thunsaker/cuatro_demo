@@ -1,0 +1,307 @@
+@import url("reset.css");
+
+html {
+    height:100%;
+    padding:0; 
+    margin:0;
+}
+
+body {
+	font-family:'Droid Sans', arial, serif;
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+a, a:visited, a:active {
+    color:#000;
+    text-decoration:none;
+}
+
+a:hover {
+    cursor:pointer;
+    text-decoration:underline;
+}
+
+/* Start General Classes */
+.center {
+    margin:auto;
+    text-align:center;
+}
+
+.hide {
+    display:none;
+}
+
+.show {
+    display:block;
+}
+/* End General Classes */
+
+.header {
+    background:#EEE;
+    border-bottom:6px solid #0CB8DC;
+    overflow:hidden;
+    width:100%;
+    top:0;
+    position:fixed;
+}
+
+.header-title-wrapper {
+    float:left;
+    padding:20px;
+}
+
+.title {
+    font-weight:bold;
+    font-size:xx-large;
+}
+
+.subtitle {
+    font-size:small;
+    padding-left:3px;
+}
+
+.profile-wrapper {
+    float:right;
+}
+
+.profile {
+    overflow:hidden;
+    padding:20px;
+}
+
+.profile-text {
+    text-align:right;
+    float:left;
+}
+
+.profile-text div {
+    padding:3px 0px;
+}
+
+.profile-image {
+    float:right;
+    margin-left:10px;
+}
+
+.profile-image img {
+    height:50px;
+    border:solid 1px #0CB8DC;
+    padding:1px;
+}
+
+.profile-sign-in {
+    margin-top:15px;
+    padding:20px;
+}
+
+.content-wrapper-outer {
+    margin:120px 40px 0 40px;
+    overflow:hidden;
+}
+
+.content-wrapper-outer a {
+    color:#0CB8DC;
+}
+
+.sidebar {
+    border-right:2px solid #0CB8DC;
+    width:200px;
+    float:left;
+    height:500px;
+    position:fixed;
+}
+
+.sidebar-section {
+    padding:10px 0;
+}
+
+.sidebar-section ul {
+    padding-left:10px;
+}
+
+.sidebar-section li {
+    padding:5px 0;
+}
+
+.sidebar-section-title {
+    padding:0 0 5px 0;
+}
+
+.sidebar-section-content {
+    
+}
+
+.sidebar-header {
+    padding:5px 0;
+    font-weight:bold;
+    font-size:larger;
+}
+
+.content-wrapper-inner {
+}
+
+.content {
+    padding:5px 10px;
+    margin-left:210px;
+}
+
+.page-title {
+    display:block;
+    font-size:large;
+    padding:0 10px;
+    margin-left:210px;
+    height:25px;
+    border-bottom:2px solid #0CB8DC;
+}
+
+.user-info-photo img {
+    width:110px;
+}
+
+.index-paragraph {
+    padding:10px;
+    line-height: 1.75;
+}
+
+.index-paragraph ol {
+    margin-left: 25px;
+}
+
+.index-paragraph-header {
+    font-weight:bold;
+    padding-bottom: 5px;
+}
+
+.endpoint-results-wrapper-outer {
+    margin:auto;
+    overflow:hidden;
+}
+
+.endpoint-options {
+    font-size:small;
+    float:right;
+    margin:0;
+}
+
+.endpoint-options li {
+    float:left;
+    margin:0;
+    padding:0 10px;
+    height:25px;
+}
+
+.endpoint-options .selected {
+    font-weight:bold;
+    background:url(../Img/rectangle_blue.png) no-repeat bottom center;
+}
+
+.badge-wrapper-inner {
+    overflow:hidden;
+    margin:auto;
+    text-align:center;
+}
+    
+.badge-item {
+    padding:10px 10px 0 10px;
+    float:left;
+    margin:5px 0.25%;
+    width:130px;
+    height:130px;
+    border-bottom:solid 1px #0CB8DC;
+    text-align:center;
+    font-size:small;
+}
+
+.badge-item:hover {
+     background:#EEE;
+}
+
+.badge-item-name {
+    font-weight:bold;
+}
+
+.leaderboard-wrapper-inner {
+    float:left; 
+    padding:10px;
+    margin:5px;
+    width:150px;
+    height:170px;
+    border-bottom:solid 1px #0CB8DC; 
+    text-align:center;
+    font-size:small;
+    display:block;
+}
+
+.leaderboard-wrapper-inner:hover {
+    background:#EEEEEE;
+}
+
+.leaderboard-rank {
+    float:left;
+}
+
+.requests-wrapper-inner {
+    float:left;
+    padding:10px;
+    margin:5px;
+    width:150px;
+    height:150px; 
+    border-bottom:solid 1px #0CB8DC;
+    /*text-align:center;*/
+    font-size:small;
+}
+
+.requests-wrapper-inner:hover {
+    background:#EEEEEE;
+}
+
+.search-wrapper-outer {
+    overflow:hidden;
+}
+
+.search-wrapper-inner-top {
+    padding:10px 0;
+    border:solid 1px #0CB8DC;
+}
+
+.search-wrapper-inner-results {
+    padding:10px 0;
+    border:solid 1px #0CB8DC;
+}
+
+.checkins-wrapper-inner {
+
+}
+
+.checkins-wrapper-item {
+    padding:10px;
+    margin: 0 10px;
+    border-bottom:solid 1px #0CB8DC;
+}
+
+.checkin-source {
+    font-size: smaller;
+    text-transform: lowercase;
+}
+
+.checkin-icons {
+    float:right;
+}
+
+.checkin-shout {
+    margin-top: 10px;
+}
+
+.zebra-stripe {
+    background:#EEE
+}
+
+.endpoint-header {
+    font-weight:bold;
+}
+
+.endpoint-section {
+    padding: 5px 0 5px 10px;
+}

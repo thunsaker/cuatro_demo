@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "User Endpoint";
+}
+
+<div class="endpoint-header">
+    General
+</div>
+<div class="endpoint-section">
+    <a href="@Url.Action("Requests")">Friend Requests</a><br />
+    <a href="@Url.Action("Leaderboard")">Leaderboard</a>
+    @*<a href="@Url.Action("Search")>Search Users</a>*@
+</div>
+
+<div class="endpoint-header">
+    Aspects
+</div>
+<div class="endpoint-section">
+    <a href="@Url.Action("Badges")">Get Unlocked Badges</a><br />
+    <a href="@Url.Action("Checkins")">Get Checkins</a>
+    @*<a href="@Url.Action("Friends")>Get Friends List</a>
+    <a href="@Url.Action("Mayorships")>Get Mayorships</a>*@
+</div>

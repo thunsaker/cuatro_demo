@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Cuatro.Common.FriendRequest>
+
+@{
+    ViewBag.Title = "Requests";
+}
+
+<div class="badge-wrapper-outer">
+@foreach (var item in Model) {
+    <div class="requests-wrapper-inner">
+        @{Html.RenderPartial("UserInfo", item.UserRequesting);}
+    </div>
+}
+</div>

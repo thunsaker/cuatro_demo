@@ -1,0 +1,8 @@
+﻿@model Cuatro.Common.FoursquareUser
+
+<div class="user-info-photo">
+    <a href="@String.Format("https://foursquare.com/user/{0}", Model.FoursquareUserId)">
+        <img src="@Model.PhotoUri" alt="@Model.FirstName @Model.LastName" /><br />
+        @Model.FirstName @Model.LastName
+    </a>
+</div>

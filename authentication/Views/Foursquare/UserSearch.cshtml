@@ -1,0 +1,26 @@
+﻿@{
+    Layout = "~/Views/Shared/_EndpointResult.cshtml";
+    ViewBag.Title = "Search";
+}
+
+@section Results {
+    <div class="search-wrapper-inner-top">
+        @using (Ajax.BeginForm("UserSearchSubmit", new AjaxOptions { UpdateTargetId = "div_search_results" })) {
+            <fieldset>
+                <span>Enter search query:</span>
+                <input type="text" id="query" />
+                <select id="typeIndex">
+                    <option value="1">Phone</option>
+                    <option value="2">Email</option>
+                    <option value="3">Facebook Id</option>
+                    <option value="4">Twitter</option>
+                </select>
+                <input type="submit" id="btn_userSearch" value="Search" />
+            </fieldset>
+        }
+        </div>
+        <div id="div_search_results" class="search-wrapper-inner-results">
+            @{Html.RenderPartial("SearchResults");}
+        </div>
+    </div>
+}

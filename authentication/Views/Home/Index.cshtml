@@ -1,0 +1,34 @@
+﻿@model Cuatro.Common.FoursquareUser
+
+@{
+    ViewBag.Title = "";
+}
+
+<div>
+    <div class="index-paragraph">
+        <div class="index-paragraph-header">
+            About Cuatro
+        </div>
+        <p>
+            Cuatro as a result of my frustration with existing C# class libraries. 
+            Not sure if this was due to their design, or my lack of understanding. 
+            I began creating an application and was spending quite a bit of time parsing JSON and creating my own classes to handle working with them. 
+            This led me to go ahead and create a full-fledged class library that I, and hopefully others, can use and develop great new applications with the <a href="https://developer.foursquare.com/">Foursquare API</a>.
+        </p>
+    </div>
+
+    <div class="index-paragraph">
+        <div class="index-paragraph-header">
+            Getting Started with Cuatro.MVCDemo
+        </div>
+        <ol>
+            <li>
+                Sign up for a <a href="https://foursquare.com/oauth/">Foursquare Developer API Key</a><br />
+                Set the “Download/Welcome Page" to http://localhost:4444/ <br />
+                Set the “Callback Url" to http://localhost:4444/FoursquareOauth/Receiver 
+            </li>
+            <li>Add your client id and client secret to Controllers/FoursquareOauthController.cs</li>
+            <li>Run the project and test it out.</li>
+        </ol>
+    </div>
+</div>

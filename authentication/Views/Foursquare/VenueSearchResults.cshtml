@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Cuatro.Common.Venue>
+
+@{
+if(Model != null) {
+    <table border="1">
+        <tr>
+            <th>
+                Foursquare Venue Id
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Item Id
+            </th>
+            <th>
+                Verified
+            </th>
+            <th>
+                Venue Uri
+            </th>
+            <th>
+                Raw Json
+            </th>
+            <th>
+                Date Created
+            </th>
+            <th>
+                Active
+            </th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FoursquareVenueId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Verified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VenueUri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RawJson)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateCreated)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+        </tr>
+    }
+    </table>
+
+} else {
+    <text>No Results</text>
+}
+}

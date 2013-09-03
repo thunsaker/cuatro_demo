@@ -1,0 +1,35 @@
+﻿<div class="profile-wrapper">
+    @{
+        Cuatro.Common.FoursquareUser current = Session["CurrentUser"] as Cuatro.Common.FoursquareUser;
+        if (current != null) {
+            <div class="profile">
+                <div class="profile-text">
+                    <div>
+                        <a href="@Url.Action("Profile", "Home")">
+                            @current.FirstName @current.LastName
+                        </a>
+                    </div>
+                    <div>
+                        <a href="@Url.Action("LogOff", "FoursquareOauth")">
+                            Sign Out
+                        </a>
+                    </div>
+                </div>
+                <div class="profile-image">
+                    <a href="@Url.Action("Profile", "Home")">
+                        <img src="@current.PhotoUri" alt="Foursquare Profile Image" />
+                    </a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="profile-sign-in">
+                <a href="@Url.Action("LogOn", "FoursquareOauth")">
+                    <img src="@Url.Content("/img/foursquare-connect-black.png")" 
+                        alt="Sign in with Foursquare(TM)" />
+                </a>
+            </div>
+        }
+    }
+</div>

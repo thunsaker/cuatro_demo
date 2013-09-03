@@ -1,0 +1,135 @@
+﻿@model IEnumerable<Cuatro.Common.Checkin>
+
+@{
+    Layout = "~/Views/Shared/_EndpointResult.cshtml";
+    ViewBag.Title = "Checkins";
+}
+
+@section HeaderExtras {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#timespan_list li').each(function () {
+                $(this).removeClass('selected');
+            });
+
+            switch ($('#hidden_days').val()) {
+                case "1":
+                    $('#item_day').addClass('selected');
+                    break;
+                case "7":
+                    $('#item_week').addClass('selected');
+                    break;
+                case "30":
+                    $('#item_month').addClass('selected');
+                    break;
+                case "365":
+                    $('#item_year').addClass('selected');
+                    break;
+            }
+        });
+
+        function toggleSelected(element) {
+            $(document).ready(function () {
+                $('#timespan_list li').each(function () {
+                    if ($(this).attr('id') == element)
+                        $(this).addClass('selected');
+                    else
+                        $(this).removeClass('selected');
+                });
+            });
+        }
+    </script>
+}
+
+@section EndpointOptions {
+    <ul id="timespan_list">
+        <li id="item_day">
+            <a href="@Url.Action("Checkins", "Foursquare", new { days = 1 })" onclick="toggleSelected('item_day')">
+                Day
+            </a>
+        </li>
+        <li id="item_week">
+            <a href="@Url.Action("Checkins", "Foursquare", new { days = 7 })" onclick="toggleSelected('item_week')">
+                Week
+            </a>
+        </li>
+        <li id="item_month" class="selected">
+            <a href="@Url.Action("Checkins", "Foursquare", new { days = 30 })" onclick="toggleSelected('item_month')">
+                Month
+            </a>
+        </li>
+        <li id="item_year">
+            <a href="@Url.Action("Checkins", "Foursquare", new { days = 365 })" onclick="toggleSelected('item_year')">
+                Year
+            </a>
+        </li>
+    </ul>
+    <input type="hidden" name="hidden_days" id="hidden_days" value="@ViewBag.Days" />
+}
+
+@section Results {
+    <div class="checkins-wrapper-inner">
+        @foreach (var item in Model)
+        {
+            <div class="checkins-wrapper-item">
+                @if(item.Private) {
+                    <span>
+                        <img src="@Url.Content("~/Img/lock_gray.png")" alt="Private" />&nbsp;
+                    </span>
+                }
+            
+                <span>
+                    @item.CreatedAt.ToShortDateString() &nbsp;
+                </span>
+
+                @if(item.IsMayor) {
+                    <span>
+                        <img src="@Url.Content("~/Img/crown_blue.png")" alt="Is Mayor" />&nbsp;
+                    </span>
+                }
+            
+                <span>
+                    <a href="@String.Format("https://foursquare.com/v/{0}", item.CheckinVenue.VenueId)">@item.CheckinVenue.Name</a>
+                </span>
+
+                <span class="checkin-icons">
+                    @if (item.CheckinSource.Name != null) {
+                        <span class="checkin-source">
+                            Via <a href="@item.CheckinSource.SourceUri">@item.CheckinSource.Name</a>&nbsp;
+                        </span>
+                    }
+                    
+                    @if (item.Comments.Comments != null && item.Comments.Comments.Count() > 0) {
+                        <span>
+                            @*TODO: Switch this back to the blue icon if I ever make this a clickable link*@
+                            @*@item.Comments.Comments.Count() <img src="@Url.Content("~/Img/comment_blue.png")" alt="Comments" />&nbsp; *@
+                            @item.Comments.Comments.Count() <img src="@Url.Content("~/Img/comment_gray.png")" alt="Comments" />&nbsp;
+                        </span>
+                    } else {
+                        <span>
+                            0 <img src="@Url.Content("~/Img/comment_gray.png")" alt="Comments" />&nbsp;
+                        </span>
+                    }
+
+                    @if (item.Photos.Photos != null && item.Photos.Photos.Count() > 0) {
+                        <span>
+                            @*TODO: Switch this back to the blue icon if I ever make this a clickable link*@
+                            @*@item.Photos.Photos.Count() <img src="@Url.Content("~/Img/photo_blue.png")" alt="Photos" />*@
+                            @item.Photos.Photos.Count() <img src="@Url.Content("~/Img/photo_gray.png")" alt="Photos" />
+                        </span>
+                    } else {
+                        <span>
+                            0 <img src="@Url.Content("~/Img/photo_gray.png")" alt="Photos" />
+                        </span>
+                    }
+                </span>
+                
+                @if (item.Shout != null && item.Shout != "") {
+                    <div class="checkin-shout">
+                        "@item.Shout"
+                    </div>
+                }
+            </div>
+        }
+    </div>
+}

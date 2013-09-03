@@ -1,0 +1,24 @@
+﻿@model Cuatro.Common.Leaderboard
+
+@{
+    Layout = "~/Views/Shared/_EndpointResult.cshtml";
+    ViewBag.Title = "Leaderboard";
+}
+
+@section Results {
+    @foreach (var item in Model.UsersList)
+    {
+        <div class="leaderboard-wrapper-inner">
+                <div class="leaderboard-rank">
+                    #@item.Rank
+                </div>
+                @{Html.RenderPartial("UserInfo", item.User);}
+                <div class="leaderboard-scores">
+                    Recent: @item.Scores.ScoresRecentCount<br />
+                    Max: @item.Scores.ScoresMaxCount<br />
+                    Checkins: @item.Scores.ScoresCheckinsCount
+                </div>
+        
+        </div>
+    }
+}

@@ -1,0 +1,17 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section HeaderExtras {
+    @RenderSection("HeaderExtras", false)
+}
+
+@section EndpointOptionsInTitle {
+    <div class="endpoint-options">
+        @RenderSection("EndpointOptions", false)
+    </div>
+}
+
+<div class="results-wrapper-outer">
+    @RenderSection("Results", false)
+</div>

@@ -1,0 +1,135 @@
+﻿@model IEnumerable<Cuatro.Common.UnlockedBadge>
+
+@{
+    Layout = "~/Views/Shared/_EndpointResult.cshtml";
+    ViewBag.Title = "Unlocked Badges";
+    
+    int foursquareId = Session["foursquareId"] != null ? int.Parse(Session["foursquareId"].ToString()) : 0;
+}
+
+@section HeaderExtras {
+    <script type="text/javascript">
+        function showAllBadges() {
+            $(document).ready(function () {
+                $('#item_all').addClass('selected');
+                $('#item_foursquare').removeClass('selected');
+                $('#item_expertise').removeClass('selected');
+                $('#item_partner').removeClass('selected');
+                $('.badge-item').each(function () {
+                    $(this).show();
+                });
+            });
+        }
+
+        function showFoursquareBadges() {
+            $(document).ready(function () {
+                $('#item_all').removeClass('selected');
+                $('#item_foursquare').addClass('selected');
+                $('#item_expertise').removeClass('selected');
+                $('#item_partner').removeClass('selected');
+                $('.badge-item').each(function () {
+                    if($(this).hasClass('badge-foursquare'))
+                        $(this).show();
+                    else
+                        $(this).hide();
+                });
+            });
+        }
+
+        function showExpertiseBadges() {
+            $(document).ready(function () {
+                $('#item_all').removeClass('selected');
+                $('#item_foursquare').removeClass('selected');
+                $('#item_expertise').addClass('selected');
+                $('#item_partner').removeClass('selected');
+                $('.badge-item').each(function () {
+                    if ($(this).hasClass('badge-expertise'))
+                        $(this).show();
+                    else
+                        $(this).hide();
+                });
+            });
+        }
+
+        function showPartnerBadges() {
+            $(document).ready(function () {
+                $('#item_all').removeClass('selected');
+                $('#item_foursquare').removeClass('selected');
+                $('#item_expertise').removeClass('selected');
+                $('#item_partner').addClass('selected');
+                $('.badge-item').each(function () {
+                    if ($(this).hasClass('badge-partner'))
+                        $(this).show();
+                    else
+                        $(this).hide();
+                });
+            });
+        }
+    </script>
+}
+
+@section EndpointOptions {
+    <ul>
+        <li id="item_all" class="selected">
+            <a href="#" onclick="showAllBadges()">
+                All
+            </a>
+        </li>
+        <li id="item_foursquare">
+            <a href="#" onclick="showFoursquareBadges()">
+                Foursquare
+            </a>
+        </li>
+        <li id="item_expertise">
+            <a href="#" onclick="showExpertiseBadges()">
+                Expertise
+            </a>
+        </li>
+        <li id="item_partner">
+            <a href="#" onclick="showPartnerBadges()">
+                Partner
+            </a>
+        </li>
+    </ul>
+}
+
+@section Results {
+    <div class="badge-wrapper-inner">
+        @foreach (var item in Model) {
+            if (!item.Badge.ImageUri.Contains("default_off.png")) {
+                <div class="badge-item badge-@item.Badge.Type.ToString("f")">
+                    <a href="@String.Format("https://foursquare.com/user/{0}/badge/{1}", foursquareId, item.BadgeId)" target="_blank">
+                        <img src="@String.Format(item.Badge.ImageUri, Cuatro.Common.BadgeImageSize.Small.ToString("d"))" 
+                            alt="@item.Badge.Name" /><br />
+                        <span class="badge-item-name">
+                            @Html.DisplayFor(modelItem => item.Badge.Name)
+                        </span>
+                    </a><br />
+
+                    @if (item.Checkin != null)
+                    {
+                        <span>
+                            @item.Checkin.CreatedAt.ToShortDateString()
+                            <br />
+                            @if (item.Checkin.CheckinVenue != null)
+                            {
+                                <span>
+                                    <a href="@String.Format("https://foursquare.com/v/{0}", item.Checkin.CheckinVenue.VenueId)">
+                                        @if (item.Checkin.CheckinVenue.Name.Length > 15)
+                                        {
+                                            @item.Checkin.CheckinVenue.Name.Substring(0, 15)<span>...</span>
+                                        }
+                                        else
+                                        {
+                                            @item.Checkin.CheckinVenue.Name
+                                        }
+                                    </a>
+                                </span>
+                            }
+                        </span>
+                    }
+                </div>
+            }
+        }
+    </div>
+        }

@@ -1,0 +1,33 @@
+﻿@{
+    if(Model != null) {
+        List<Cuatro.Common.FoursquareUser> userResults = Model as List<Cuatro.Common.FoursquareUser>;
+        if(userResults != null)
+        {
+            foreach (var u in userResults)
+            {
+                Html.RenderPartial("UserInfo", u);
+            }
+
+            return;
+        }
+        else
+        {
+            <span>No Users found for query.</span>
+        }
+        
+        List<Cuatro.Common.Venue> venueResults = Model as List<Cuatro.Common.Venue>;
+        if(venueResults != null)
+        {
+            foreach (var v in venueResults)
+            {
+                Html.RenderPartial("VenueInfo", v);
+            }
+
+            return;
+        }
+        else
+        {
+            <span>No venues found for query.</span>
+        }
+    }
+}

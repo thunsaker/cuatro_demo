@@ -1,0 +1,8 @@
+Cuatro 
+=======================
+
+Cuatro will be a C# class library for use with the Foursquare API
+
+Cuatro as a result of my frustration with existing C# class libraries. Not sure if this was due to their design, or my lack of understanding. I began creating an application and was spending quite a bit of time parsing JSON and creating my own classes to handle working with them. This led me to go ahead and create a full-fledged class library that I, and hopefully others, can use and develop great new applications with the Foursquare API.
+
+Watch this repository for updates on my progress and to send feedback about issues.

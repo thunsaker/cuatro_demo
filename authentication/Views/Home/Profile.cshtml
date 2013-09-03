@@ -1,0 +1,32 @@
+﻿@model Cuatro.Common.FoursquareUser
+
+@{
+    ViewBag.Title = "Profile";
+    ViewBag.CurrentUser = Model;
+}
+<div>
+    <div>
+        <img src="@Model.PhotoUri" alt="Profile Image" />
+    </div>
+
+    <div>
+        Foursquare Id:
+        @Html.DisplayFor(model => model.FoursquareUserId)
+    </div>
+
+    <div>
+        Name:  @Html.DisplayFor(model => model.FirstName) @Html.DisplayFor(model => model.LastName)
+    </div>
+
+    <div>
+        Gender:  @Html.DisplayFor(model => model.Gender)
+    </div>
+
+    <div>
+        HomeCity: @Html.DisplayFor(model => model.HomeCity)
+    </div>
+
+    <div>
+        AccessToken: @Html.DisplayFor(model => model.AccessToken)
+    </div>
+</div>
