@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace Cuatro.MVCDemo {
+namespace thunsaker.cuatro.demo {
     public class FoursquareSecretsTemplate {
         // TODO: Add Foursquare Client ID and Client Secret here
         private static string CLIENT_ID = "FOURSQUARE_CLIENT_ID_HERE";

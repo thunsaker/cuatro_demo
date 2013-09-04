@@ -10,7 +10,7 @@ using Newtonsoft.Json.Linq;
 using Cuatro.Common;
 using System.Web.Security;
 
-namespace Cuatro.MVCDemo.Controllers
+namespace thunsaker.cuatro.demo.Controllers
 {
     [HandleError]
     public class FoursquareOauthController : Controller
@@ -23,7 +23,7 @@ namespace Cuatro.MVCDemo.Controllers
         /// <returns></returns>
         public ActionResult LogOn()
         {
-            string logonUri = String.Format("https://foursquare.com/oauth2/authenticate?client_id={0}&response_type=code&redirect_uri={1}", CLIENT_ID, REDIRECT_URI);
+            string logonUri = String.Format("https://foursquare.com/oauth2/authenticate?client_id={0}&response_type=code&redirect_uri={1}", FoursquareSecrets.CLIENT_ID, FoursquareSecrets.REDIRECT_URI);
             return Redirect(logonUri);
         }
 
@@ -47,10 +47,10 @@ namespace Cuatro.MVCDemo.Controllers
                 {
                     StringBuilder accessTokenUri = new StringBuilder();
                     accessTokenUri.Append("https://foursquare.com/oauth2/access_token");
-                    accessTokenUri.Append(String.Format("?client_id={0}", CLIENT_ID));
-                    accessTokenUri.Append(String.Format("&client_secret={0}", CLIENT_SECRET));
+                    accessTokenUri.Append(String.Format("?client_id={0}", FoursquareSecrets.CLIENT_ID));
+                    accessTokenUri.Append(String.Format("&client_secret={0}", FoursquareSecrets.CLIENT_SECRET));
                     accessTokenUri.Append("&grant_type=authorization_code");
-                    accessTokenUri.Append(String.Format("&redirect_uri={0}", REDIRECT_URI));
+                    accessTokenUri.Append(String.Format("&redirect_uri={0}", FoursquareSecrets.REDIRECT_URI));
                     accessTokenUri.Append("&code=" + code);
 
                     var response = WebRequestHelper.WebRequest(WebRequestHelper.Method.GET, accessTokenUri.ToString(), string.Empty);

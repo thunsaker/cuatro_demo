@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Cuatro.MVCDemo</RootNamespace>
-    <AssemblyName>Cuatro.MVCDemo</AssemblyName>
+    <RootNamespace>thunsaker.cuatro.demo</RootNamespace>
+    <AssemblyName>thunsaker.cuatro.demo</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>false</UseIISExpress>
@@ -73,11 +73,16 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="thunsaker.cuatro">
+      <HintPath>..\cuatro\bin\Debug\thunsaker.cuatro.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\FoursquareOauthController.cs" />
     <Compile Include="Controllers\FoursquareController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="FoursquareSecrets.cs" />
+    <Compile Include="FoursquareSecretsTemplate.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -140,12 +145,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\common\Cuatro.Common.csproj">
-      <Project>{5047CBF1-A1BF-4257-96EA-3D2F52F6FE54}</Project>
-      <Name>Cuatro.Common</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />

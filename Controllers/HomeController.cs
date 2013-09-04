@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Cuatro.Common;
 
-namespace Cuatro.MVCDemo.Controllers {
+namespace thunsaker.cuatro.demo.Controllers {
     public class HomeController : Controller {
         //
         // GET: /Home/

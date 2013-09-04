@@ -10,7 +10,7 @@
             About Cuatro
         </div>
         <p>
-            Cuatro as a result of my frustration with existing C# class libraries. 
+            Cuatro is a result of my frustration with existing C# class libraries. 
             Not sure if this was due to their design, or my lack of understanding. 
             I began creating an application and was spending quite a bit of time parsing JSON and creating my own classes to handle working with them. 
             This led me to go ahead and create a full-fledged class library that I, and hopefully others, can use and develop great new applications with the <a href="https://developer.foursquare.com/">Foursquare API</a>.
@@ -19,7 +19,7 @@
 
     <div class="index-paragraph">
         <div class="index-paragraph-header">
-            Getting Started with Cuatro.MVCDemo
+            Getting Started with Cuatro Demo
         </div>
         <ol>
             <li>
@@ -27,7 +27,9 @@
                 Set the “Download/Welcome Page" to http://localhost:4444/ <br />
                 Set the “Callback Url" to http://localhost:4444/FoursquareOauth/Receiver 
             </li>
-            <li>Add your client id and client secret to Controllers/FoursquareOauthController.cs</li>
+            <li>Copy FoursquareSecretsTemplate.cs to FoursquareSecrets.cs (this file has been gitignored)</li>
+            <li>Add your client id and client secret to FoursquareSecrets.cs</li>
+            <li>Add a reference to the latest version of <a href="https://github.com/thunsaker/cuatro">thunsaker.cuatro.common</a> library to your project.</li>
             <li>Run the project and test it out.</li>
         </ol>
     </div>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using Cuatro.Common;
 
-namespace Cuatro.MVCDemo.Models {
+namespace thunsaker.cuatro.demo.Models {
     public class VenueSearchModel {
         [Display(Name="Query (optional)")]
         public string SearchQuery { get; set; }

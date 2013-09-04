@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using Cuatro.Common;
 using Cuatro.Common.Endpoints;
-using Cuatro.MVCDemo.Models;
+using thunsaker.cuatro.demo.Models;
 
-namespace Cuatro.MVCDemo.Controllers {
+namespace thunsaker.cuatro.demo.Controllers {
     public class FoursquareController : Controller {
         //
         // GET: /Foursquare/
